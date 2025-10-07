@@ -1,8 +1,367 @@
-/*
+/* The Good Tracker Plugin Styles */
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+/* Main view container */
+.habit-tracker-view {
+	padding: 20px;
+	height: 100%;
+	overflow-y: auto;
+}
 
-If your plugin does not need CSS, delete this file.
+/* Header with navigation */
+.habit-tracker-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin-bottom: 24px;
+	padding-bottom: 16px;
+	border-bottom: 2px solid var(--background-modifier-border);
+}
 
-*/
+.habit-month-year {
+	margin: 0;
+	font-size: 1.5em;
+	min-width: 200px;
+	text-align: center;
+}
+
+.habit-nav-btn,
+.habit-today-btn,
+.habit-summary-btn {
+	padding: 6px 12px;
+	border-radius: 4px;
+	border: 1px solid var(--background-modifier-border);
+	background: var(--background-primary);
+	color: var(--text-normal);
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.habit-nav-btn:hover,
+.habit-today-btn:hover,
+.habit-summary-btn:hover {
+	background: var(--background-modifier-hover);
+}
+
+.habit-summary-btn {
+	margin-left: 8px;
+}
+
+/* Calendar grid */
+.habit-tracker-calendar {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.calendar-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 8px;
+}
+
+.calendar-day-name {
+	text-align: center;
+	font-weight: 600;
+	padding: 8px;
+	color: var(--text-muted);
+	font-size: 0.9em;
+}
+
+.calendar-day {
+	min-height: 100px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	padding: 8px;
+	background: var(--background-primary);
+	cursor: pointer;
+	transition: all 0.2s;
+	display: flex;
+	flex-direction: column;
+}
+
+.calendar-day:not(.empty):hover {
+	background: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-day.empty {
+	background: var(--background-secondary);
+	cursor: default;
+	border: 1px dashed var(--background-modifier-border);
+}
+
+.calendar-day.today {
+	border: 2px solid var(--interactive-accent);
+	background: var(--background-primary-alt);
+}
+
+.day-number {
+	font-weight: 600;
+	margin-bottom: 8px;
+	color: var(--text-normal);
+}
+
+.calendar-day.today .day-number {
+	color: var(--interactive-accent);
+}
+
+.day-habits {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	flex: 1;
+}
+
+.day-habit-icon {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.day-habit-icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+/* Empty state */
+.habit-empty-state {
+	text-align: center;
+	padding: 40px 20px;
+	color: var(--text-muted);
+	margin-top: 40px;
+}
+
+.habit-empty-state p {
+	margin: 8px 0;
+}
+
+/* Habit Picker Modal */
+.habit-picker-modal {
+	padding: 20px;
+}
+
+.habit-picker-modal h3 {
+	margin: 0 0 20px 0;
+}
+
+.habit-picker-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px;
+	margin-bottom: 8px;
+	border-radius: 6px;
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	transition: background 0.2s;
+}
+
+.habit-picker-item:hover {
+	background: var(--background-modifier-hover);
+}
+
+.habit-picker-item input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.habit-picker-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex: 1;
+	cursor: pointer;
+}
+
+.habit-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+}
+
+.habit-icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+.habit-name {
+	font-weight: 500;
+}
+
+/* Summary Modal */
+.habit-summary-modal {
+	padding: 20px;
+	min-width: 400px;
+}
+
+.habit-summary-modal h2 {
+	margin: 0 0 20px 0;
+	text-align: center;
+}
+
+.habit-summary-list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.habit-summary-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px;
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+}
+
+.habit-summary-item .habit-name {
+	flex: 1;
+}
+
+.habit-count {
+	font-weight: 600;
+	color: var(--interactive-accent);
+	font-size: 1.1em;
+}
+
+/* Add Habit Modal */
+.add-habit-modal {
+	padding: 20px;
+	min-width: 500px;
+}
+
+.add-habit-modal h2 {
+	margin: 0 0 20px 0;
+}
+
+.icon-preview {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	margin-left: 12px;
+}
+
+.icon-preview svg {
+	width: 28px;
+	height: 28px;
+}
+
+.suggested-icons {
+	margin-top: 20px;
+	padding: 16px;
+	background: var(--background-secondary);
+	border-radius: 6px;
+}
+
+.suggested-icons p {
+	margin: 0 0 12px 0;
+	font-weight: 500;
+}
+
+.icons-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+	gap: 8px;
+}
+
+.icon-suggestion {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s;
+	background: var(--background-primary);
+}
+
+.icon-suggestion:hover {
+	background: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+	transform: scale(1.1);
+}
+
+.icon-suggestion svg {
+	width: 20px;
+	height: 20px;
+	color: var(--text-normal);
+}
+
+.modal-button-container {
+	display: flex;
+	gap: 12px;
+	justify-content: flex-end;
+	margin-top: 24px;
+}
+
+.modal-button-container button {
+	padding: 8px 16px;
+	border-radius: 4px;
+	border: 1px solid var(--background-modifier-border);
+	background: var(--background-primary);
+	color: var(--text-normal);
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.modal-button-container button:hover {
+	background: var(--background-modifier-hover);
+}
+
+.modal-button-container button.mod-cta {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border-color: var(--interactive-accent);
+}
+
+.modal-button-container button.mod-cta:hover {
+	background: var(--interactive-accent-hover);
+}
+
+/* Settings Tab */
+.habit-icon-preview {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+}
+
+.habit-icon-preview svg {
+	width: 20px;
+	height: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+	.calendar-day {
+		min-height: 80px;
+		padding: 6px;
+	}
+
+	.day-habit-icon svg {
+		width: 16px;
+		height: 16px;
+	}
+
+	.habit-tracker-header {
+		flex-wrap: wrap;
+	}
+
+	.habit-month-year {
+		font-size: 1.2em;
+		min-width: 150px;
+	}
+}
